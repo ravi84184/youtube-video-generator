@@ -529,7 +529,7 @@ def main():
 
         # Apply drawtext in the complex graph if we need complex anyway (icon path).
         if drawtext_filters:
-            parts.append(f"{vlabel_cur}{drawtext_filters}[vtxt]")
+            parts.append(f"{vlabel_cur}{drawtext_filters}[vtxt]") 
             vlabel_cur = "[vtxt]"
 
         if top_icon:
