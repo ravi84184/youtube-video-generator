@@ -12,6 +12,7 @@ def convert_to_portrait(
     rotate=None,
     crop_left=0,
     crop_right=0,
+    bg_color="black",
 ):
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Input file does not exist: {input_path}")
@@ -39,7 +40,8 @@ def convert_to_portrait(
     vf_filters.append(
         f"scale='min({width},iw*{height}/ih)':'min({height},ih*{width}/iw)':force_original_aspect_ratio=decrease"
     )
-    vf_filters.append(f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:black")
+    # pad color can be any ffmpeg color (e.g. "white", "0x112233", "black@0.8")
+    vf_filters.append(f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:{bg_color}")
     vf_str = ",".join(vf_filters)
     ffmpeg_cmd = [
         ffmpeg_path,
@@ -93,6 +95,11 @@ def main():
         default=0,
         help="Crop this many pixels from the right side of the video before processing.",
     )
+    parser.add_argument(
+        "--bg_color",
+        default="black",
+        help="Pad/background color (ffmpeg color name or 0xRRGGBB, e.g., white, 0xff00aa, black@0.5).",
+    )
     args = parser.parse_args()
     try:
         convert_to_portrait(
@@ -103,6 +110,7 @@ def main():
             args.rotate,
             args.crop_left,
             args.crop_right,
+            args.bg_color,
         )
     except Exception as e:
         print(f"Error: {e}")
