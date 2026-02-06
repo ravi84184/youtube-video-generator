@@ -199,7 +199,7 @@ python split_video.py -f otu.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-tex
 python split_video.py -f outputvideos.mp4 -s 20 -o my_videos/ -v libx264 -a aac --top-text "Money" --top-icon "dollor.png" --top-icon-height 64 --top-icon-x 20 --top-icon-y 200 --top-text-x 120 --bottom-text "Part {part}" --bg-music background_music.mp3 --parts 1-5
 
 
-python split_video.py -f ekaki.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Ekaki Chapter " --top-icon "images.png" --top-icon-height 64 --top-icon-x 210 --top-icon-y 100 --top-text-x 180 --bottom-text "Part {part}" --metadata "title=Ekaki Chapter Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
+python split_video.py -f ekaki.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Ekaki Chapter " --top-icon "image.webp" --top-icon-height 64 --top-icon-x 210 --top-icon-y 100 --top-text-x 160 --bottom-text "Part {part}" --metadata "title=Ekaki Chapter Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
 
 
 
