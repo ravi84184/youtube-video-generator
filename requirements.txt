@@ -30,7 +30,7 @@ requests-oauthlib==2.0.0
 rsa==4.9
 TgCrypto==1.2.5
 uritemplate==4.1.1
-urllib3==2.3.0
+urllib3==2.6.3
 yt-dlp==2025.3.31
 
 rembg>=2.0.50
