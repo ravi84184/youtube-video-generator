@@ -19,7 +19,7 @@ oauthlib==3.2.2
 proto-plus==1.26.1
 protobuf==6.30.2
 pyaes==1.6.1
-pyasn1==0.6.1
+pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pyparsing==3.2.3
 Pyrogram==2.0.106
