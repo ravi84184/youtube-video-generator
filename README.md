@@ -181,7 +181,7 @@ Feel free to submit issues and enhancement requests!
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-
+python convert_to_portrait.py --input input_part1.mp4 --output out.mp4 --bg_color white
 
 python convert_to_portrait.py --input input1.mkv --output outputvideos.mp4 --crop_left 200 --crop_right 200
 
@@ -192,11 +192,96 @@ python split_video.py -f input.mp4 -s 30 -o my_videos/ -v libx264 -a aac
 python split_video.py -f outputvideos.mp4 -s 20 -o my_videos/ -v libx264 -a aac --top-text "South movie 2025" --bottom-text "Part {part}" --top-fontsize 48 --font "/System/Library/Fonts/Kohinoor.ttc" --bg-music background_music.mp3 --parts 1-5
 
 
-python split_into_two.py outputvideos.mp4 --minutes 30 1
+python split_into_two.py stock-power.mp4 --minutes 1 1
 
-python split_video.py -f outputvideos.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Money" --bottom-text "Part {part}" --top-fontsize 48 --font "/System/Library/Fonts/Kohinoor.ttc" --bg-music background_music.mp3 --parts 6-10 --flip horizontal
+python split_video.py -f otu.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Baazaar" --bottom-text "Part {part}" --top-fontsize 48 --font "/System/Library/Fonts/Kohinoor.ttc" --bg-music background_music.mp3 --parts 6-10 --flip horizontal
 
 python split_video.py -f outputvideos.mp4 -s 20 -o my_videos/ -v libx264 -a aac --top-text "Money" --top-icon "dollor.png" --top-icon-height 64 --top-icon-x 20 --top-icon-y 200 --top-text-x 120 --bottom-text "Part {part}" --bg-music background_music.mp3 --parts 1-5
 
 
-python split_video.py -f outputvideos.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Money" --top-icon "dollor.png" --top-icon-height 64 --top-icon-x 300 --top-icon-y 200 --top-text-x 120 --bottom-text "Part {part}" --metadata "title=Money Part {part} Flick Series,comment=Flick Series {part} of {total}"
+python split_video.py -f ekaki.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Ekaki Chapter " --top-icon "images.png" --top-icon-height 64 --top-icon-x 210 --top-icon-y 100 --top-text-x 180 --bottom-text "Part {part}" --metadata "title=Ekaki Chapter Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
+
+
+
+
+python trim_video.py --input videoplayback.mp4 --output videoplayback1.mp4 --start 24 --end 180
+
+python change_speed_batch.py --input_dir my_videos --output_dir my_videos_1_1x --speed 1.1
+
+
+python convert_to_portrait.py --input videoplayback1.mp4 --output out.mp4 --bg_blur
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Add a PNG at top-left corner (x=10, y=10)
+python add_overlay.py --input out.mp4 --overlay images.png --output output.mp4 --x 10 --y 10
+
+# Add with scaling (half size)
+python add_overlay.py --input video.mp4 --overlay logo.png --output output.mp4 --x 100 --y 50 --scale 0.5
+
+# Add with specific width (maintains aspect ratio)
+python add_overlay.py --input video.mp4 --overlay logo.png --output output.mp4 --x 50 --y 50 --width 200
+
+
+# Horizontal movement (left to right, loops continuously)
+python add_overlay.py --input out.mp4 --overlay images.png --output output.mp4 --animate horizontal --y 50
+
+# Vertical movement (top to bottom, loops continuously)
+python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate vertical --x 100
+
+# Reverse horizontal (right to left)
+python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal_reverse --y 50
+
+# Reverse vertical (bottom to top)
+python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate vertical_reverse --x 100
+
+# Control animation speed (pixels per second)
+python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal --y 50 --speed 100
+
+# Control loop duration (complete cycle in seconds)
+python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal --y 50 --loop_duration 5.0
+
+
+
+
+
+
+python apply_anti_detect_filters.py --input output.mp4 --output output1.mp4 --preset aggressive
+
+python apply_anti_detect_filters.py --input output.mp4 --output output1.mp4 --mirror --rotate 0.6 --preset subtle
+
+python apply_anti_detect_filters.py --input output.mp4 --output output.mp4 --brightness 0.05 --contrast 1.1 --saturation 1.15 --mirror --rotate 0.8
