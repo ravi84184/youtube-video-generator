@@ -24,7 +24,7 @@ pyasn1_modules==0.4.2
 pyparsing==3.2.3
 Pyrogram==2.0.106
 PySocks==1.7.1
-python-dotenv==1.1.0
+python-dotenv==1.2.2
 requests==2.32.3
 requests-oauthlib==2.0.0
 rsa==4.9
