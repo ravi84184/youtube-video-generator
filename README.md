@@ -21,18 +21,21 @@ This project consists of two main scripts that work together to download Instagr
 ## Installation
 
 1. Clone this repository:
+
 ```bash
 git clone <repository-url>
 cd instagram
 ```
 
 2. Create and activate a virtual environment:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Install required packages:
+
 ```bash
 pip install -r requirements.txt
 pip install -r youtube_requirements.txt
@@ -42,8 +45,6 @@ pip install -r youtube_requirements.txt
 python src/upload_local_sheet.py sheet/FlutterNik.xlsx flutternik
 python src/upload_local_sheet.py sheet/poojahegde.xlsx poojahegde
 
-
-
 mrbeast
 python src/download_all_video.py mrbeast mrbeast
 
@@ -52,6 +53,7 @@ python src/download_all_video.py mrbeast mrbeast
 ### Instagram Setup
 
 1. Run the session creation script:
+
 ```bash
 python create_session.py
 ```
@@ -80,11 +82,13 @@ python create_session.py
 ### Downloading Instagram Reels
 
 1. Run the download script with a username:
+
 ```bash
 python download_reels.py username
 ```
 
 The script will:
+
 - Load the saved Instagram session
 - Count available reels
 - Download reels with progress tracking
@@ -93,11 +97,13 @@ The script will:
 ### Uploading to YouTube
 
 1. Run the upload script:
+
 ```bash
 python youtube_uploader.py
 ```
 
 The script will:
+
 - Authenticate with YouTube API
 - Find all downloaded videos
 - Schedule uploads starting from 10 AM the next day
@@ -121,11 +127,13 @@ The script will:
 ## File Naming Convention
 
 Downloaded videos follow this format:
+
 ```
 username_1_postcode_timestamp.mp4
 ```
 
 Where:
+
 - `username`: Instagram username
 - `1`: Fixed identifier
 - `post_code`: Instagram post code
@@ -134,6 +142,7 @@ Where:
 ## Error Handling
 
 Both scripts include comprehensive error handling:
+
 - Rate limit detection and handling
 - Session expiration management
 - Network error recovery
@@ -142,6 +151,7 @@ Both scripts include comprehensive error handling:
 ## Logging
 
 Logs are printed to the console with timestamps and include:
+
 - Operation progress
 - Success/failure messages
 - Error details
@@ -183,7 +193,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 python convert_to_portrait.py --input input_part1.mp4 --output out.mp4 --bg_color white
 
-python convert_to_portrait.py --input input1.mkv --output outputvideos.mp4 --crop_left 200 --crop_right 200
+1.
+python convert_to_portrait.py --input video.mp4 --output outputvideos.mp4 --crop_left 200 --crop_right 200
+2.
+python split_video.py -f outputvideos.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Comedy Ever" --top-text-x 120 --bottom-text "Part {part}" --metadata "title=Best Comedy Ever Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
 
 python convert_to_portrait.py --input Panchayat_S04_E02.mkv --output Panchayat_S04_E02_p.mkv --crop_left 110 --crop_right 110
 
@@ -191,97 +204,70 @@ python split_video.py -f input.mp4 -s 30 -o my_videos/ -v libx264 -a aac
 
 python split_video.py -f outputvideos.mp4 -s 20 -o my_videos/ -v libx264 -a aac --top-text "South movie 2025" --bottom-text "Part {part}" --top-fontsize 48 --font "/System/Library/Fonts/Kohinoor.ttc" --bg-music background_music.mp3 --parts 1-5
 
-
 python split_into_two.py stock-power.mp4 --minutes 1 1
 
 python split_video.py -f otu.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Baazaar" --bottom-text "Part {part}" --top-fontsize 48 --font "/System/Library/Fonts/Kohinoor.ttc" --bg-music background_music.mp3 --parts 6-10 --flip horizontal
 
 python split_video.py -f outputvideos.mp4 -s 20 -o my_videos/ -v libx264 -a aac --top-text "Money" --top-icon "dollor.png" --top-icon-height 64 --top-icon-x 20 --top-icon-y 200 --top-text-x 120 --bottom-text "Part {part}" --bg-music background_music.mp3 --parts 1-5
 
-
-python split_video.py -f Friends_with_Benefits.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Friends with Benefits" --top-icon "image.png" --top-icon-height 64 --top-icon-x 210 --top-icon-y 100 --top-text-x 50 --bottom-text "Part {part}" --metadata "title=Ekaki Chapter Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
-
-
-
+python split_video.py -f outputvideos.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Comedy Ever" --top-text-x 120 --bottom-text "Part {part}" --metadata "title=Best Comedy Ever Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
 
 python trim_video.py --input videoplayback.mp4 --output videoplayback1.mp4 --start 24 --end 180
 
 python change_speed_batch.py --input_dir my_videos --output_dir my_videos_1_1x --speed 1.1
 
-
-python convert_to_portrait.py --input input.mp4 --output out.mp4 --bg_blur
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+python convert_to_portrait.py --input video.mp4 --output outputvideos.mp4 --crop_left 200 --crop_right 200 --bg_blur
 
 # Add a PNG at top-left corner (x=10, y=10)
+
 python add_overlay.py --input out.mp4 --overlay images.png --output output.mp4 --x 10 --y 10
 
 # Add with scaling (half size)
+
 python add_overlay.py --input video.mp4 --overlay logo.png --output output.mp4 --x 100 --y 50 --scale 0.5
 
 # Add with specific width (maintains aspect ratio)
+
 python add_overlay.py --input video.mp4 --overlay logo.png --output output.mp4 --x 50 --y 50 --width 200
 
-
 # Horizontal movement (left to right, loops continuously)
+
 python add_overlay.py --input out.mp4 --overlay images.png --output output.mp4 --animate horizontal --y 50
 
 # Vertical movement (top to bottom, loops continuously)
+
 python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate vertical --x 100
 
 # Reverse horizontal (right to left)
+
 python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal_reverse --y 50
 
 # Reverse vertical (bottom to top)
+
 python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate vertical_reverse --x 100
 
 # Control animation speed (pixels per second)
+
 python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal --y 50 --speed 100
 
 # Control loop duration (complete cycle in seconds)
+
 python add_overlay.py --input video.mp4 --overlay moving_logo.gif --output output.mp4 --animate horizontal --y 50 --loop_duration 5.0
-
-
-
-
-
 
 python apply_anti_detect_filters.py --input output.mp4 --output output1.mp4 --preset aggressive
 
 python apply_anti_detect_filters.py --input output.mp4 --output output1.mp4 --mirror --rotate 0.6 --preset subtle
 
 python apply_anti_detect_filters.py --input output.mp4 --output output.mp4 --brightness 0.05 --contrast 1.1 --saturation 1.15 --mirror --rotate 0.8
+
+
+python convert_to_portrait.py --input Kitty_Party_S00E01_Kitty_Party_Episode_1_1080p_ULLU_WEB_DL_English.mkv --output outputvideos1.mp4 --crop_left 200 --crop_right 200 --bg_blur
+
+python trim_video.py --input videoplayback.mp4 --output videoplayback1.mp4 --start 24 --end 180
+
+1.
+python convert_to_portrait.py --input Kitty_Party_S00E01_Kitty_Party_Episode_1_1080p_ULLU_WEB_DL_English.mkv --output outputvideos1.mp4 --crop_left 200 --crop_right 200 --bg_blur
+2.
+python trim_video.py --input outputvideos1.mp4 --output videoplayback1.mp4 --start 13 --end 60
+
+python split_video.py -f videoplayback1.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Romance" --top-text-x 120 --bottom-text "E-1 Part {part}" --metadata "title=Kitty_Party_S00E01 Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
