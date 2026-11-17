@@ -3,3 +3,5 @@ venv/
 sample/
 my_videos/
 my_videos_mp4/
+*.mp4
+*.mkv
