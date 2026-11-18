@@ -266,8 +266,8 @@ python convert_to_portrait.py --input Kitty_Party_S00E01_Kitty_Party_Episode_1_1
 python trim_video.py --input videoplayback.mp4 --output videoplayback1.mp4 --start 24 --end 180
 
 1.
-python convert_to_portrait.py --input Kitty_Party_S00E01_Kitty_Party_Episode_1_1080p_ULLU_WEB_DL_English.mkv --output outputvideos1.mp4 --crop_left 200 --crop_right 200 --bg_blur
+python convert_to_portrait.py --input Kitty_Party_S00E02_Kitty_Party_Episode_2_1080p_ULLU_WEB_DL_English.mkv --output outputvideos1.mp4 --crop_left 200 --crop_right 200 --bg_blur
 2.
-python trim_video.py --input outputvideos1.mp4 --output videoplayback1.mp4 --start 13 --end 60
+python trim_video.py --input outputvideos1.mp4 --output videoplayback1.mp4 --start 13 --end 65
 
-python split_video.py -f videoplayback1.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Romance" --top-text-x 120 --bottom-text "E-1 Part {part}" --metadata "title=Kitty_Party_S00E01 Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
+python split_video.py -f videoplayback1.mp4 -s 60 -o my_videos/ -v libx264 -a aac --top-text "Best Romance E2" --top-text-x 120 --bottom-text "E-2 Part {part}" --metadata "title=Kitty_Party_S01E02 Part {part} Flick Series,comment=Flick Series {part} of {total}" --top-fontsize 30 --parts 1
